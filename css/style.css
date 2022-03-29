@@ -1,5 +1,6 @@
 body {
-  background-color: red;
+  background-image: url(../pokeball.webp);
+  background-size: cover;
 }
 
 /*# sourceMappingURL=style.css.map */
