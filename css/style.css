@@ -2,5 +2,34 @@ body {
   background-image: url(../images/pokeball.webp);
   background-size: cover;
 }
+body .header {
+  font-size: 50px;
+  height: 100px;
+  background-color: #3B4CCA;
+  color: #FFDE00;
+  box-shadow: #3B4CCA 0px 0px 15px 0px;
+}
+body .description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 30px;
+  background-color: #FFDE00;
+  height: 200px;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border: solid 5px #3B4CCA;
+  border-radius: 10px;
+  box-shadow: #3B4CCA 0px 3px 8px 3px;
+}
+body .description .welcome {
+  font-size: 24px;
+  font-weight: bold;
+}
+body .description .rules {
+  font-size: 20px;
+}
 
 /*# sourceMappingURL=style.css.map */
