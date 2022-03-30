@@ -8,6 +8,7 @@ $br: 10px;
 body {
     background-image: url(../images/pokeball.webp);
     background-size: cover;
+    background-position: center -150px;
     .header {
         font-size: 50px;
         height: 100px;
@@ -37,5 +38,56 @@ body {
         .rules{
             font-size: 20px;
         }
+        
+    }
+    .players{
+        background-color: $yellow1;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        border: solid 5px $blue;
+        border-radius: $br;
+        width: 700px;
+        height: 100px;
+        box-shadow: $blue 0px 3px 8px 3px;
+        margin: 260px auto 0px auto;
+        .players-button{
+            background-color: white;
+            border-radius: $br;
+            border: solid $red2 2px;
+            text-decoration: none;
+            font-size: 24px;
+        }
+        .players-button:hover{
+            background-color: $red2;
+            color: white;
+            transition: .5s;
+        }
+        .players-button:focus{
+            outline: none;
+        }
+    }
+    .start{
+        font-weight: bold;
+        font-size: 20px;
+        width: 200px;
+        height: 50px;
+        margin-top: 40px;
+        border: solid $blue 5px;
+        box-shadow: $blue 0px 3px 8px 3px;
+        border-radius: $br;
+    }
+    .start:hover{
+        transform: translateY(-10px);
+        transition: ease-in .3s;
+        background-color: $blue;
+        color: $yellow1;
+    }
+    .start:active{
+        transform: scale(.9);
+        transition: 0s;
+    }
+    .start:focus{
+        outline: none;
     }
 }
