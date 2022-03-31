@@ -7,7 +7,7 @@
     <title>Pokemon Match</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css">
-    <script defer src="script.js"></script>
+    <script defer src="../script.js"></script>
 </head>
 <body>
     <!-- welcome -->
@@ -23,9 +23,21 @@
     </div>
     <!-- player select -->
     <div class="players">
-        <button class="players-button" id="players-button">Players: 1 ▼</button>
-        <button class="players-button" id="size-button">Size: 12 Cards ▼</button>
-        <button class="players-button" id="cards-button">Cards: Pack 1 ▼</button>
+        <div class="player-amount">
+            <button class="players-button" id="players-button">Players: 1 ▼</button>
+            <div class="hidden-players display-none" id="hidden-players">
+                <li class="dropdown-item">1 Player</li>
+                <li class="dropdown-item">2 Players</li>
+                <li class="dropdown-item">3 Players</li>
+                <li class="dropdown-item">4 Players</li>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="players-button" id="size-button">Size: 12 Cards ▼</button>
+        </div>
+        <div class="dropdown">
+            <button class="players-button" id="cards-button">Cards: Pack 1 ▼</button>
+        </div>
     </div>
     <div class="cardset-parent">
         <a class="cardset-link" href="/html/card-set.html">Checkout Card Packs!</a> 
