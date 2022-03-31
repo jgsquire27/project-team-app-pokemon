@@ -77,6 +77,10 @@ body .start {
   border: solid #3B4CCA 5px;
   box-shadow: #3B4CCA 0px 3px 8px 3px;
   border-radius: 10px;
+  text-align: center;
+  text-decoration: none;
+  color:#3B4CCA;
+
 }
 
 body .start:hover {
