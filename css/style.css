@@ -1,9 +1,8 @@
 body {
   background-image: url(../images/pokeball.webp);
-  background-size: cover;
-  background-position: center -150px;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
-
 body .header {
   font-size: 50px;
   height: 100px;
@@ -11,7 +10,6 @@ body .header {
   color: #FFDE00;
   box-shadow: #3B4CCA 0px 0px 15px 0px;
 }
-
 body .description {
   display: flex;
   flex-direction: column;
@@ -27,16 +25,13 @@ body .description {
   border-radius: 10px;
   box-shadow: #3B4CCA 0px 3px 8px 3px;
 }
-
 body .description .welcome {
   font-size: 24px;
   font-weight: bold;
 }
-
 body .description .rules {
   font-size: 20px;
 }
-
 body .players {
   background-color: #FFDE00;
   display: flex;
@@ -44,12 +39,11 @@ body .players {
   justify-content: space-evenly;
   border: solid 5px #3B4CCA;
   border-radius: 10px;
-  width: 45%;
+  width: 700px;
   height: 100px;
   box-shadow: #3B4CCA 0px 3px 8px 3px;
-  margin: 260px auto 0px auto;
+  margin: 250px auto 0px auto;
 }
-
 body .players .players-button {
   background-color: white;
   border-radius: 10px;
@@ -57,43 +51,56 @@ body .players .players-button {
   text-decoration: none;
   font-size: 24px;
 }
-
 body .players .players-button:hover {
   background-color: #CC0000;
   color: white;
   transition: 0.5s;
 }
-
 body .players .players-button:focus {
   outline: none;
 }
-
+body .players .hidden-players {
+  position: absolute;
+  background-color: white;
+  z-index: 1;
+  width: 115px;
+  margin-left: 10px;
+  border-radius: 0px 0px 10px 10px;
+  border-right: solid #CC0000 2px;
+  border-left: solid #CC0000 2px;
+  border-bottom: solid #CC0000 2px;
+}
+body .players .hidden-players .dropdown-item:hover {
+  background-color: #CC0000;
+  cursor: pointer;
+  color: white;
+}
 body .start {
   font-weight: bold;
   font-size: 20px;
   width: 200px;
   height: 50px;
   margin-top: 40px;
+  margin-bottom: 200px;
   border: solid #3B4CCA 5px;
   box-shadow: #3B4CCA 0px 3px 8px 3px;
   border-radius: 10px;
 }
-
 body .start:hover {
-  transform: translateY(-10px);
   transition: ease-in 0.3s;
   background-color: #3B4CCA;
   color: #FFDE00;
 }
-
 body .start:active {
   transform: scale(0.9);
   transition: 0s;
 }
-
 body .start:focus {
   outline: none;
 }
 
+.display-none {
+  display: none;
+}
 
 /*# sourceMappingURL=style.css.map */

@@ -7,8 +7,8 @@ $br: 10px;
 
 body {
     background-image: url(../images/pokeball.webp);
-    background-size: cover;
-    background-position: center -150px;
+    background-size: contain;
+    background-repeat: no-repeat;
     .header {
         font-size: 50px;
         height: 100px;
@@ -50,7 +50,8 @@ body {
         width: 700px;
         height: 100px;
         box-shadow: $blue 0px 3px 8px 3px;
-        margin: 260px auto 0px auto;
+        margin: 250px auto 0px auto;
+        
         .players-button{
             background-color: white;
             border-radius: $br;
@@ -66,6 +67,23 @@ body {
         .players-button:focus{
             outline: none;
         }
+        .hidden-players{
+            position: absolute;
+            background-color: white;
+            z-index: 1;
+            width: 115px;
+            margin-left: 10px;
+            border-radius: 0px 0px $br $br;
+            border-right: solid $red2 2px;
+            border-left: solid $red2 2px;
+            border-bottom: solid $red2 2px;
+            .dropdown-item:hover{
+                background-color: $red2;
+                cursor: pointer;
+                color: white;
+            }
+        }
+        
     }
     .start{
         font-weight: bold;
@@ -73,12 +91,12 @@ body {
         width: 200px;
         height: 50px;
         margin-top: 40px;
+        margin-bottom: 200px;
         border: solid $blue 5px;
         box-shadow: $blue 0px 3px 8px 3px;
         border-radius: $br;
     }
     .start:hover{
-        transform: translateY(-10px);
         transition: ease-in .3s;
         background-color: $blue;
         color: $yellow1;
@@ -90,4 +108,7 @@ body {
     .start:focus{
         outline: none;
     }
+}
+.display-none{
+    display: none;
 }
