@@ -7,8 +7,11 @@ $br: 10px;
 
 body {
     background-image: url(../images/pokeball.webp);
-    background-size: contain;
     background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: unset center;
+    background-position: center center;
+    background-size: cover;
     .header {
         font-size: 50px;
         height: 100px;
@@ -67,11 +70,10 @@ body {
         .players-button:focus{
             outline: none;
         }
-        .hidden-players{
+        .hidden{
             position: absolute;
             background-color: white;
             z-index: 1;
-            width: 115px;
             margin-left: 10px;
             border-radius: 0px 0px $br $br;
             border-right: solid $red2 2px;
@@ -82,6 +84,10 @@ body {
                 cursor: pointer;
                 color: white;
             }
+            .cardset-link:hover{
+                background-color: $blue;
+                color: $yellow1;
+            }
         }
         
     }
@@ -91,7 +97,6 @@ body {
         width: 200px;
         height: 50px;
         margin-top: 40px;
-        margin-bottom: 200px;
         border: solid $blue 5px;
         box-shadow: $blue 0px 3px 8px 3px;
         border-radius: $br;
