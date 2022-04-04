@@ -4,7 +4,6 @@ const hiddenPlayers = document.getElementById('hidden-players');
 function displayPlayers() {
     hiddenPlayers.classList.toggle('display-none');
 }
-playersButton.addEventListener('click', displayPlayers);
 
 //display dropdown to select game size
 const sizeButton = document.getElementById('size-button');
@@ -25,8 +24,12 @@ cardsButton.addEventListener('click', displayCards);
 //card pack api 
 const dataPromise = loadData();
 dataPromise.then(data => console.log(data));
-dataPromise.then(data => console.log(data.sets));
 
 function loadData() {
     return fetch('https://api.pokemontcg.io/v1/sets').then(response => response.json());
+}
+
+//change buttons to display selected option
+function changePlayer() {
+    console.log(document.getElementById('hidden-players').selectedIndex);
 }
