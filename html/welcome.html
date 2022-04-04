@@ -25,7 +25,7 @@
     <div class="players">
         <div class="dropdown">
             <!-- <button class="players-button" id="players-button">Players: 1 ▼</button> -->
-            <select class="players-button" id="hidden-players" onchange="changePlayer()">
+            <select class="players-button" id="hidden-players">
                 <option class="dropdown-item" id="1-player">1 Player</option>
                 <option class="dropdown-item" id="2-player">2 Players</option>
                 <option class="dropdown-item" id="3-player">3 Playes</option>
@@ -35,15 +35,15 @@
 
         <div class="dropdown">
             <select class="players-button" id="hidden-size">
-                <option class="dropdown-item">12 Cards</option>
-                <option class="dropdown-item">24 Cards</option>
+                <option class="dropdown-item" id="12-cards">12 Cards</option>
+                <option class="dropdown-item" id="24-cards">24 Cards</option>
             </select>
         </div>
 
         <div class="dropdown">
             <select class="players-button" id="hidden-cards">
-                <option>Pack 1</option>
-                <option>Pack 2</option>
+                <option class="dropdown-item" id="pack1">Pack 1</option>
+                <option class="dropdown-item" id="pack2">Pack 2</option>
                 <a class="cardset-link dropdown-item" href="card-set.html">New Card Pack</a>
             </select>
         </div>
