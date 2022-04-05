@@ -1,4 +1,6 @@
 body {
+  width: 100%;
+  min-height: 100%;
   background-image: url(../images/pokeball.webp);
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -104,8 +106,57 @@ body .start:focus {
   outline: none;
 }
 
-.display-none {
-  display: none;
+.start-link {
+  color: black;
+}
+
+.start-link:hover {
+  color: #FFDE00;
+  text-decoration: none;
+}
+
+.gameboard {
+  background-color: white;
+  border: 5px solid black;
+  border-radius: 10px;
+  width: 80%;
+  height: 700px;
+  margin: 50px auto;
+  display: flex;
+}
+.gameboard .game-left {
+  width: 30%;
+  height: 100%;
+}
+.gameboard .game-left .player-display {
+  margin: 10px;
+}
+.gameboard .game-left .player-display .player-info {
+  border-radius: 10px;
+  border: solid 5px #3B4CCA;
+  list-style-type: none;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-bottom: 10px;
+  background-color: #FFDE00;
+}
+.gameboard .game-left .player-display .player-info .name-input {
+  padding-left: 10px;
+  border: none;
+  border-radius: 10px;
+}
+.gameboard .game-left .player-display .player-info .name-input:focus {
+  outline: none;
+}
+.gameboard .game-left .player-display .player-info .score {
+  margin-left: 25px;
+  margin-bottom: 0px;
+}
+.gameboard .game-right {
+  width: 70%;
+  height: 100%;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -14,24 +14,14 @@ localStorage.setItem('pack', 'pack1');
 document.getElementById('hidden-players').addEventListener('change', function(e) {
     let playerId = e.target.options[e.target.selectedIndex].getAttribute('id');
     localStorage.setItem('players', playerId);
-    ls();
 });
 
 document.getElementById('hidden-size').addEventListener('change', function(e) {
     let sizeId = e.target.options[e.target.selectedIndex].getAttribute('id');
     localStorage.setItem('size', sizeId);
-    ls();
 });
 
 document.getElementById('hidden-cards').addEventListener('change', function(e) {
     let packId = e.target.options[e.target.selectedIndex].getAttribute('id');
     localStorage.setItem('pack', packId);
-    ls();
 });
-
-function ls() {
-    console.log(localStorage.getItem('players'));
-    console.log(localStorage.getItem('size'));
-    console.log(localStorage.getItem('pack'));
-}
-ls();
