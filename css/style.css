@@ -40,6 +40,9 @@ body .description .welcome {
   font-size: 24px;
   font-weight: bold;
 }
+.link:hover{
+  text-decoration: none;
+}
 body .description .rules {
   font-size: 20px;
 }
