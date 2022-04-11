@@ -1,10 +1,9 @@
 //Generate game board
-
-
 let playerNumber = localStorage.getItem('players');
 let gameSize = localStorage.getItem('size');
 let packSelection = localStorage.getItem('pack');
 const playerDisplay = document.getElementById('player-display');
+const gameBoard = document.getElementById('game-board');
 //load local storage into console
 function loadLs() {
     console.log(playerNumber);
