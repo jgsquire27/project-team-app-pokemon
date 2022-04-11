@@ -6,6 +6,8 @@ $yellow2: #B3A125;
 $br: 10px;
 
 body {
+    width: 100%;
+    min-height: 100%;
     background-image: url(../images/pokeball.webp);
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -114,6 +116,55 @@ body {
         outline: none;
     }
 }
-.display-none{
-    display: none;
+.start-link{
+    color: black;
+    
+}
+.start-link:hover {
+    color: $yellow1;
+    text-decoration: none;
+
+}
+.gameboard{
+    background-color: white;
+    border:  5px solid black;
+    border-radius: $br;
+    width: 80%;
+    height: 700px;
+    margin: 50px auto;
+    display: flex;
+    .game-left{
+        width: 30%;
+        height: 100%;
+        .player-display{
+            margin: 10px;
+            .player-info{
+                border-radius: $br;
+                border: solid 5px $blue;
+                list-style-type: none;
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                margin-bottom: 10px;
+                background-color: $yellow1;
+                .name-input{
+                    padding-left: 10px;
+                    border: none;
+                    border-radius: $br;
+                }
+                .name-input:focus{
+                    outline: none;
+                }
+                .score{
+                    margin-left: 25px;
+                    margin-bottom: 0px;
+                }
+            }
+        }
+    }
+    .game-right{
+        width: 70%;
+        height: 100%;
+    }
 }
