@@ -30,6 +30,12 @@ body .description {
   border-radius: 10px;
   box-shadow: #3B4CCA 0px 3px 8px 3px;
 }
+.header-link{
+  background-color: #3B4CCA;
+}
+.background{
+  background-color: #3B4CCA;
+}
 body .description .welcome {
   font-size: 24px;
   font-weight: bold;
@@ -105,6 +111,8 @@ body .start:active {
 body .start:focus {
   outline: none;
 }
+
+
 
 .start-link {
   color: black;
