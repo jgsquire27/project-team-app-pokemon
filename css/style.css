@@ -43,9 +43,18 @@ body .description .welcome {
 .link:hover{
   text-decoration: none;
 }
+.card-set-link{
+  color:black;
+  font-size: 20px;
+  font-style: italic;
+}
+.rules{
+  margin-bottom: 2px;
+}
 body .description .rules {
   font-size: 20px;
 }
+
 body .players {
   background-color: #FFDE00;
   display: flex;
