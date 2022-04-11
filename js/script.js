@@ -24,8 +24,4 @@ document.getElementById('hidden-size').addEventListener('change', function(e) {
 document.getElementById('hidden-cards').addEventListener('change', function(e) {
     let packId = e.target.options[e.target.selectedIndex].getAttribute('id');
     localStorage.setItem('pack', packId);
-<<<<<<< HEAD
-});
-=======
-});
->>>>>>> Noah
+
