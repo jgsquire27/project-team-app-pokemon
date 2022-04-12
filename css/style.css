@@ -30,12 +30,6 @@ body .description {
   border-radius: 10px;
   box-shadow: #3B4CCA 0px 3px 8px 3px;
 }
-.header-link{
-  background-color: #3B4CCA;
-}
-.background{
-  background-color: #3B4CCA;
-}
 body .description .welcome {
   font-size: 24px;
   font-weight: bold;
@@ -112,8 +106,6 @@ body .start:focus {
   outline: none;
 }
 
-
-
 .start-link {
   color: black;
 }
@@ -165,6 +157,35 @@ body .start:focus {
 .gameboard .game-right {
   width: 70%;
   height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+  perspective: 1000px;
+}
+.gameboard .game-right .memory-card {
+  height: 30%;
+  margin: 10px;
+  position: relative;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+  display: flex;
+  justify-content: center;
+}
+.gameboard .game-right .memory-card .front-face, .gameboard .game-right .memory-card .back-face {
+  position: absolute;
+  height: 100%;
+  backface-visibility: hidden;
+}
+.gameboard .game-right .memory-card .front-face {
+  transform: rotateY(180deg);
+}
+.gameboard .game-right .memory-card.flip {
+  transform: rotateY(180deg);
+}
+.gameboard .game-right .memory-card:hover {
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=style.css.map */
