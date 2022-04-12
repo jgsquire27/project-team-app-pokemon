@@ -1,6 +1,7 @@
 //card pack api 
 const dataPromise = loadData();
-dataPromise.then(data => console.log(data));
+dataPromise.then(data => console.log(data.sets[0]));
+
 
 function loadData() {
     return fetch('https://api.pokemontcg.io/v1/sets').then(response => response.json());

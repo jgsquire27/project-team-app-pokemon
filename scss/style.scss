@@ -166,5 +166,34 @@ body {
     .game-right{
         width: 70%;
         height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: space-between;
+        perspective: 1000px;
+        .memory-card{
+            height: 30%;
+            margin: 10px;
+            position: relative;
+            transform: scale(1);
+            transform-style: preserve-3d;
+            transition: transform .5s;
+            display: flex;
+            justify-content: center;
+            .front-face, .back-face{
+                position: absolute;
+                height: 100%;
+                backface-visibility: hidden;
+            }
+            .front-face {
+                transform: rotateY(180deg);
+              }
+        }
+        .memory-card.flip {
+            transform: rotateY(180deg);
+        }
+        .memory-card:hover{
+            cursor: pointer;
+        }
     }
 }

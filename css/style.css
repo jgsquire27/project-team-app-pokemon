@@ -34,24 +34,9 @@ body .description .welcome {
   font-size: 24px;
   font-weight: bold;
 }
-<<<<<<< HEAD
-=======
-.link:hover{
-  text-decoration: none;
-}
-.card-set-link{
-  color:black;
-  font-size: 20px;
-  font-style: italic;
-}
-.rules{
-  margin-bottom: 2px;
-}
->>>>>>> b0852fc793f091ef378da503ff64e8cd579ce91b
 body .description .rules {
   font-size: 20px;
 }
-
 body .players {
   background-color: #FFDE00;
   display: flex;
@@ -172,6 +157,35 @@ body .start:focus {
 .gameboard .game-right {
   width: 70%;
   height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+  perspective: 1000px;
+}
+.gameboard .game-right .memory-card {
+  height: 30%;
+  margin: 10px;
+  position: relative;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+  display: flex;
+  justify-content: center;
+}
+.gameboard .game-right .memory-card .front-face, .gameboard .game-right .memory-card .back-face {
+  position: absolute;
+  height: 100%;
+  backface-visibility: hidden;
+}
+.gameboard .game-right .memory-card .front-face {
+  transform: rotateY(180deg);
+}
+.gameboard .game-right .memory-card.flip {
+  transform: rotateY(180deg);
+}
+.gameboard .game-right .memory-card:hover {
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=style.css.map */
