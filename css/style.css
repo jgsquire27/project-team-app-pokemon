@@ -34,9 +34,24 @@ body .description .welcome {
   font-size: 24px;
   font-weight: bold;
 }
+<<<<<<< HEAD
+=======
+.link:hover{
+  text-decoration: none;
+}
+.card-set-link{
+  color:black;
+  font-size: 20px;
+  font-style: italic;
+}
+.rules{
+  margin-bottom: 2px;
+}
+>>>>>>> b0852fc793f091ef378da503ff64e8cd579ce91b
 body .description .rules {
   font-size: 20px;
 }
+
 body .players {
   background-color: #FFDE00;
   display: flex;
