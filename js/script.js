@@ -3,7 +3,7 @@ const dataPromise = loadData();
 dataPromise.then(data => console.log(data.sets[0]));
 
 
-function loadData() {
+async function loadData() {
     return fetch('https://api.pokemontcg.io/v1/sets').then(response => response.json());
 }
 
