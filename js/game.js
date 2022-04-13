@@ -18,28 +18,50 @@ function loadLs() {
 }
 loadLs();
 //display correct amount of players
-let playerHTML = `<li class="player-info" id="player-info">
-<input class="name-input" type="text" placeholder="Enter Player Name">
-<p class="score">Score: 0</p>
-</li>`;
+
  function generateGame(cards){
-     if (playerNumber === '1-player') {
-        playerDisplay.innerHTML = playerHTML;
-        renderCards(cards);
-     }
-    //  else if (playerNumber === '2-player'){
-    //      playerDisplay.innerHTML = playerHTML + playerHTML;
-    //  }
-    //  else if (playerNumber === '3-player'){
-    //     playerDisplay.innerHTML = playerHTML + playerHTML + playerHTML;
-    // }
-    // else if (playerNumber === '4-player'){
-    //     playerDisplay.innerHTML = playerHTML + playerHTML + playerHTML + playerHTML;
-    // }
+        let playerHTML = [`<li class="player-info" id="player-info1">
+                                <input class="name-input" type="text" placeholder="Enter Player Name">
+                                <p class="score">Score: 0</p>
+                            </li>`,
+                            `<li class="player-info" id="player-info2">
+                                <input class="name-input" type="text" placeholder="Enter Player Name">
+                                <p class="score">Score: 0</p>
+                            </li>`,
+                            `<li class="player-info" id="player-info3">
+                                <input class="name-input" type="text" placeholder="Enter Player Name">
+                                <p class="score">Score: 0</p>
+                            </li>`,
+                            `<li class="player-info" id="player-info4">
+                                <input class="name-input" type="text" placeholder="Enter Player Name">
+                                <p class="score">Score: 0</p>
+                            </li>`
+                        ];
+        if (playerNumber === '1-player') {
+            playerHTML.splice('1');
+            playerDisplay.innerHTML = playerHTML;
+            renderCards(cards);
+        }
+        else if (playerNumber === '2-player') {
+            playerHTML.splice('2');
+            playerDisplay.innerHTML = playerHTML;
+            renderCards(cards);
+        }
+        else if (playerNumber === '3-player') {
+            playerHTML.splice('3');
+            playerDisplay.innerHTML = playerHTML;
+            renderCards(cards);
+        }
+        else if (playerNumber === '4-player') {
+            playerDisplay.innerHTML = playerHTML;
+            renderCards(cards);
+        }
+    
  }
  dataPromise.then(data => generateGame(data.cards));
 
- //12 cards
+
+ //render game size and randomize cards
  function renderCards(cards) {
     if (gameSize === '12-cards'){
         cards.splice(6);
@@ -47,7 +69,7 @@ let playerHTML = `<li class="player-info" id="player-info">
         doubleCards.sort((a, b) => 0.5 - Math.random());
         let cardHtml = '';
         doubleCards.forEach(card => {
-            cardHtml += `<div class="memory-card" id="${card.id}">
+            cardHtml += `<div class="memory-card large" id="${card.id}">
                             <img class="front-face" src="${card.imageUrl}">
                             <img class="back-face" src="../images/cardback.jpeg">
                          </div>`
@@ -60,7 +82,7 @@ let playerHTML = `<li class="player-info" id="player-info">
         doubleCards.sort((a, b) => 0.5 - Math.random());
         let cardHtml = '';
         doubleCards.forEach(card => {
-            cardHtml += `<div class="memory-card" id="${card.id}">
+            cardHtml += `<div class="memory-card small" id="${card.id}">
                             <img class="front-face" src="${card.imageUrl}">
                             <img class="back-face" src="../images/cardback.jpeg">
                          </div>`
@@ -73,3 +95,13 @@ let playerHTML = `<li class="player-info" id="player-info">
     }
     cardflip.forEach(card => card.addEventListener('click', flipCard));
  }
+
+
+ //message board
+ let messageBoard = document.getElementById('message-board');
+ let player1 = 'Player 1';
+ let player2 = 'Player 2'
+ let player3 = 'Player 3';
+ let player4 = 'Player 4';
+
+ messageBoard.innerText = player1 + 's turn';

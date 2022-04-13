@@ -154,18 +154,36 @@ body .start:focus {
   margin-left: 25px;
   margin-bottom: 0px;
 }
+.gameboard .game-left .message-board {
+  border: solid 5px #3B4CCA;
+  border-radius: 10px;
+  width: calc(100% - 30px);
+  margin: 50px 10px 0px 10px;
+  padding: 10px;
+  color: #CC0000;
+  font-size: 40px;
+  font-weight: 800;
+  text-align: center;
+  background-color: #FFDE00;
+}
 .gameboard .game-right {
   width: 70%;
+  padding: 0px;
   height: 100%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   perspective: 1000px;
 }
+.gameboard .game-right .small {
+  height: calc(25% - 10px);
+}
+.gameboard .game-right .large {
+  height: calc(30% - 5px);
+}
 .gameboard .game-right .memory-card {
-  height: 30%;
-  margin: 10px;
+  margin: 5px;
   position: relative;
   transform: scale(1);
   transform-style: preserve-3d;
