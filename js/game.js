@@ -1,15 +1,24 @@
 //card pack api 
-const dataPromise = loadData();
-function loadData() {
-    return fetch('https://api.pokemontcg.io/v1/cards').then(response => response.json());
-}
-
-//Generate game board
 let playerNumber = localStorage.getItem('players');
 let gameSize = localStorage.getItem('size');
 let packSelection = localStorage.getItem('pack');
 const playerDisplay = document.getElementById('player-display');
 const gameBoard = document.getElementById('game-board');
+
+let localApi = localStorage.getItem('localApi');
+async function loadData() {
+    if (localApi === '') {
+        let renderApi = JSON.stringify(await fetch('https://api.pokemontcg.io/v1/cards').then(response => response.json()));
+        localStorage.setItem('localApi', renderApi);
+    }
+    else {
+        localApi = JSON.parse(localStorage.getItem('localApi'));
+    }
+    console.log(localApi);
+    generateGame(localApi.cards);
+}
+loadData();
+
 //load local storage into console
 function loadLs() {
     console.log(playerNumber);
@@ -40,25 +49,38 @@ loadLs();
         if (playerNumber === '1-player') {
             playerHTML.splice('1');
             playerDisplay.innerHTML = playerHTML;
-            renderCards(cards);
+            renderPack(cards);
         }
         else if (playerNumber === '2-player') {
             playerHTML.splice('2');
             playerDisplay.innerHTML = playerHTML;
-            renderCards(cards);
+            renderPack(cards);
         }
         else if (playerNumber === '3-player') {
             playerHTML.splice('3');
             playerDisplay.innerHTML = playerHTML;
-            renderCards(cards);
+            renderPack(cards);
         }
         else if (playerNumber === '4-player') {
             playerDisplay.innerHTML = playerHTML;
-            renderCards(cards);
+            renderPack(cards);
         }
     
  }
- dataPromise.then(data => generateGame(data.cards));
+// card pack selector
+function renderPack(cards) {
+    let cardPack = [];
+    if (packSelection === 'pack1') {
+        cardPack = cards.slice(0, 12);
+    }
+    else if (packSelection ==='pack2'){
+        cardPack = cards.slice(13, 24);
+    }
+    else {
+        cardPack = cards.slice(25, 46);
+    }
+    renderCards(cardPack);
+}
 
 
  //render game size and randomize cards
@@ -77,7 +99,6 @@ loadLs();
         document.getElementById('game-board').innerHTML = cardHtml;
     }
     if (gameSize === '24-cards'){
-        cards.splice(12);
         const doubleCards = [...cards, ...cards];
         doubleCards.sort((a, b) => 0.5 - Math.random());
         let cardHtml = '';
@@ -89,6 +110,7 @@ loadLs();
         });
         document.getElementById('game-board').innerHTML = cardHtml;
     }
+    //flip cards
     const cardflip = document.querySelectorAll('.memory-card');
     function flipCard() {
         this.classList.toggle('flip');
