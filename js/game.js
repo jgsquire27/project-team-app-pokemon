@@ -74,10 +74,10 @@ function renderPack(cards) {
         cardPack = cards.slice(0, 12);
     }
     else if (packSelection ==='pack2'){
-        cardPack = cards.slice(13, 24);
+        cardPack = cards.slice(12, 24);
     }
     else {
-        cardPack = cards.slice(25, 46);
+        cardPack = cards.slice(24, 36);
     }
     renderCards(cardPack);
 }
@@ -103,21 +103,54 @@ function renderPack(cards) {
         doubleCards.sort((a, b) => 0.5 - Math.random());
         let cardHtml = '';
         doubleCards.forEach(card => {
-            cardHtml += `<div class="memory-card small" id="${card.id}">
+            cardHtml += `<div class="memory-card small" data-framework="${card.id}">
                             <img class="front-face" src="${card.imageUrl}">
                             <img class="back-face" src="../images/cardback.jpeg">
                          </div>`
         });
         document.getElementById('game-board').innerHTML = cardHtml;
     }
-    //flip cards
+    //START MATCHING GAME
     const cardflip = document.querySelectorAll('.memory-card');
+    let hasFlippedCard = false;
+    let lockBoard = false;
+    let firstCard, secondCard;
     function flipCard() {
-        this.classList.toggle('flip');
+        if (lockBoard) return;
+        if (this === firstCard) return;
+        this.classList.add('flip');
+        if (!hasFlippedCard) {
+            hasFlippedCard = true; 
+            firstCard = this;
+            return;
+        }
+        secondCard = this;
+        checkForMatch();
+    }
+    function checkForMatch() {
+        let isMatch = firstCard.id === secondCard.id;
+        isMatch ? disableCards() : unflipCards();
+    }
+    function disableCards() {
+        firstCard.removeEventListener('click', flipCard);
+        secondCard.removeEventListener('click', flipCard);
+        resetBoard();
+    }
+    function unflipCards() {
+        lockBoard = true;
+        setTimeout(() => {
+            firstCard.classList.remove('flip');
+            secondCard.classList.remove('flip');
+            resetBoard();
+        }, 700);
+    }
+    function resetBoard() {
+        [hasFlippedCard, lockBoard] = [false, false];
+        [firstCard, secondCard] = [null, null];
     }
     cardflip.forEach(card => card.addEventListener('click', flipCard));
  }
-
+//END MATCHING GAME
 
  //message board
  let messageBoard = document.getElementById('message-board');
@@ -127,3 +160,5 @@ function renderPack(cards) {
  let player4 = 'Player 4';
 
  messageBoard.innerText = player1 + 's turn';
+
+ //check to see if clicked twice
