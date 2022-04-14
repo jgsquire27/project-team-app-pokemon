@@ -31,19 +31,19 @@ loadLs();
  function generateGame(cards){
         let playerHTML = [`<li class="player-info" id="player-info1">
                                 <input class="name-input" type="text" placeholder="Enter Player Name">
-                                <p class="score">Score: 0</p>
+                                <p class="score" id="player1score">Score: 0</p>
                             </li>`,
                             `<li class="player-info" id="player-info2">
                                 <input class="name-input" type="text" placeholder="Enter Player Name">
-                                <p class="score">Score: 0</p>
+                                <p class="score" id="player2score">Score: 0</p>
                             </li>`,
                             `<li class="player-info" id="player-info3">
                                 <input class="name-input" type="text" placeholder="Enter Player Name">
-                                <p class="score">Score: 0</p>
+                                <p class="score" id="player3score">Score: 0</p>
                             </li>`,
                             `<li class="player-info" id="player-info4">
                                 <input class="name-input" type="text" placeholder="Enter Player Name">
-                                <p class="score">Score: 0</p>
+                                <p class="score" id="player4score">Score: 0</p>
                             </li>`
                         ];
         if (playerNumber === '1-player') {
@@ -130,6 +130,19 @@ function renderPack(cards) {
     function checkForMatch() {
         let isMatch = firstCard.id === secondCard.id;
         isMatch ? disableCards() : unflipCards();
+
+        if (playerNumber === '1-player') {
+
+        }
+        else if (playerNumber === '2-player') {
+
+        }
+        else if (playerNumber === '3-player') {
+
+        }
+        else if (playerNumber === '4-player') {
+
+        }
     }
     function disableCards() {
         firstCard.removeEventListener('click', flipCard);
@@ -158,7 +171,9 @@ function renderPack(cards) {
  let player2 = 'Player 2'
  let player3 = 'Player 3';
  let player4 = 'Player 4';
-
+if (playerNumber === '1-player') {
+    messageBoard.innerText = 'Pokemon Match';
+}
+else {
  messageBoard.innerText = player1 + 's turn';
-
- //check to see if clicked twice
+}
