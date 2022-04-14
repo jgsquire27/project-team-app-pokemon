@@ -12,4 +12,4 @@ if played in single player, give the player limited rounds
 
 ---low priority---
 publish web app on public website (firebase)
-submit written feedback from 5 people outside of app
+submit written feedback from 5 people outside of class
