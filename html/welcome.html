@@ -7,31 +7,66 @@
     <title>Pokemon Match</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css">
-    <script defer src="index.js"></script>
+    <script defer src="../js/script.js"></script>
 </head>
 <body>
     <!-- welcome -->
-    <div class="max-width height text-center header">Pokémon Match!</div>
+    <div class="max-width height text-center header">
+        <a href='welcome.html' class="header link">Pokemon Match!</a>
+    </div>
     <div class="description">
         <h2 class="welcome">Welcome to the Pokémon Matching game!</h2>
         <p class="rules">
             Select number of players, <br>
             Select game size, <br>
             Select your card pack, <br>
-            Let's start matching!
-        </p>
+            Let's start matching!</p>
+            <a class="card-set-link" href="card-set.html">View Card Sets!</a>
     </div>
     <!-- player select -->
     <div class="players">
+<<<<<<< HEAD
         <button class="players-button" id="players-button">Players: 1 ▼</button>
         <button class="players-button" id="size-button">Size: 12 Cards ▼</button>
         <button class="players-button" id="cards-button">Cards: Pack 1 ▼</button>
     </div>
     <div class="cardset-link-parent">
         <a class="cardset-link" href="/html/card-set.html">Checkout Card Packs!</a> 
+=======
+        <div class="dropdown">
+            <!-- <button class="players-button" id="players-button">Players: 1 ▼</button> -->
+            <select class="players-button" id="hidden-players">
+                <option class="dropdown-item" id="1-player">1 Player</option>
+                <option class="dropdown-item" id="2-player">2 Players</option>
+                <option class="dropdown-item" id="3-player">3 Players</option>
+                <option class="dropdown-item" id="4-player">4 Players</option>
+            </select>
+        </div>
+
+        <div class="dropdown">
+            <select class="players-button" id="hidden-size">
+                <option class="dropdown-item" id="12-cards">12 Cards</option>
+                <option class="dropdown-item" id="24-cards">24 Cards</option>
+            </select>
+        </div>
+
+        <div class="dropdown">
+            <select class="players-button" id="hidden-cards">
+                <option class="dropdown-item" id="pack1">Pack 1</option>
+                <option class="dropdown-item" id="pack2">Pack 2</option>
+                <option class="dropdown-item" id="pack3">Pack 3</option>
+                <a class="cardset-link dropdown-item" href="card-set.html">New Card Pack</a>
+            </select>
+        </div>
+>>>>>>> Jon
     </div>
+
     <div style="width: 100%; display: flex; justify-content: center;">
+<<<<<<< HEAD
         <a href="/html/matching.html" class="start" id="start-button">Start Game</a>
+=======
+        <button class="start" id="start-button"><a class="start-link" href="matching.html">Start Game</a></button>
+>>>>>>> Jon
     </div>
     <!-- card select -->
 

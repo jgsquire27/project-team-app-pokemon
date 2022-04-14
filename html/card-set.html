@@ -7,10 +7,35 @@
     <title>Pokemon Match</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css">
-    <script defer src="index.js"></script>
+    <script defer src="../js/script.js"></script>
+    <script defer src="../js/card-set.js"></script>
 </head>
-<body>
-    <div class="max-width height text-center header">Pokémon Match!</div>
+<body class="body-override">
+
+    <div class="max-width height text-center header">
+        <a href='welcome.html' class="header link">Pokemon Match!</a>
+    </div>
+    <div class="card-set-master-parent">
+        <div class="three-division-container">
+            <div class="style-override">
+                <h2 class="welcome">Card Set 1</h2>
+            </div>
+            <div class="set-style" id="set-one"></div>
+        </div>
+        <div class="three-division-container">
+            <div class="style-override">
+                <h2 class="welcome">Card Set 2</h2>
+            </div>
+            <div class="set-style" id="set-two"></div>
+        </div>
+        <div class="three-division-container">
+            <div class="style-override">
+                <h2 class="welcome">Card Set 3</h2>
+            </div>
+            <div class="set-style" id="set-three"></div>
+        </div>
+    </div>
+    <div class="load-api" id="load-api"></div>
     
 </body>
 </html>

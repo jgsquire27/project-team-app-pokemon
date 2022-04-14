@@ -6,9 +6,14 @@ $yellow2: #B3A125;
 $br: 10px;
 
 body {
+    width: 100%;
+    min-height: 100%;
     background-image: url(../images/pokeball.webp);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: unset center;
+    background-position: center center;
     background-size: cover;
-    background-position: center -150px;
     .header {
         font-size: 50px;
         height: 100px;
@@ -50,7 +55,8 @@ body {
         width: 700px;
         height: 100px;
         box-shadow: $blue 0px 3px 8px 3px;
-        margin: 260px auto 0px auto;
+        margin: 250px auto 0px auto;
+        
         .players-button{
             background-color: white;
             border-radius: $br;
@@ -66,6 +72,26 @@ body {
         .players-button:focus{
             outline: none;
         }
+        .hidden{
+            position: absolute;
+            background-color: white;
+            z-index: 1;
+            margin-left: 10px;
+            border-radius: 0px 0px $br $br;
+            border-right: solid $red2 2px;
+            border-left: solid $red2 2px;
+            border-bottom: solid $red2 2px;
+            .dropdown-item:hover{
+                background-color: $red2;
+                cursor: pointer;
+                color: white;
+            }
+            .cardset-link:hover{
+                background-color: $blue;
+                color: $yellow1;
+            }
+        }
+        
     }
     .start{
         font-weight: bold;
@@ -78,7 +104,6 @@ body {
         border-radius: $br;
     }
     .start:hover{
-        transform: translateY(-10px);
         transition: ease-in .3s;
         background-color: $blue;
         color: $yellow1;
@@ -89,5 +114,105 @@ body {
     }
     .start:focus{
         outline: none;
+    }
+}
+.start-link{
+    color: black;
+    
+}
+.start-link:hover {
+    color: $yellow1;
+    text-decoration: none;
+
+}
+.gameboard{
+    background-color: white;
+    background-image: url(../images/output-onlinepngtools.png);
+    border:  5px solid black;
+    border-radius: $br;
+    width: 80%;
+    height: 700px;
+    margin: 50px auto;
+    display: flex;
+    .game-left{
+        width: 30%;
+        height: 100%;
+        .player-display{
+            margin: 10px;
+            .player-info{
+                border-radius: $br;
+                border: solid 5px $blue;
+                list-style-type: none;
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                margin-bottom: 10px;
+                background-color: $yellow1;
+                .name-input{
+                    padding-left: 10px;
+                    border: none;
+                    border-radius: $br;
+                }
+                .name-input:focus{
+                    outline: none;
+                }
+                .score{
+                    margin-left: 25px;
+                    margin-bottom: 0px;
+                }
+            }
+        }
+        .message-board{
+            border: solid 5px $blue;
+            border-radius: $br;
+            width: calc(100% - 30px);
+            margin: 50px 10px 0px 10px;
+            padding: 10px;
+            color: $red2;
+            font-size: 40px;
+            font-weight: 800;
+            text-align: center;
+            background-color: $yellow1;
+        }
+    }
+    .game-right{
+        width: 70%;
+        padding: 0px;
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: space-around;
+        perspective: 1000px;
+        .small{
+            height: calc(25% - 10px);
+        }
+        .large{
+            height: calc(30% - 5px);
+        }
+        .memory-card{
+            margin: 5px;
+            position: relative;
+            transform: scale(1);
+            transform-style: preserve-3d;
+            transition: transform .5s;
+            display: flex;
+            justify-content: center;
+            .front-face, .back-face{
+                position: absolute;
+                height: 100%;
+                backface-visibility: hidden;
+            }
+            .front-face {
+                transform: rotateY(180deg);
+              }
+        }
+        .memory-card.flip {
+            transform: rotateY(180deg);
+        }
+        .memory-card:hover{
+            cursor: pointer;
+        }
     }
 }

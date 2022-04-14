@@ -1,9 +1,23 @@
 body {
+  width: 100%;
+  min-height: 100%;
   background-image: url(../images/pokeball.webp);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: unset center;
+  background-position: center center;
   background-size: cover;
-  background-position: center -150px;
 }
-
+.body-override{
+  width: 100%;
+  min-height: 100%;
+  background-image: url(../images/chill-pokemon-background.avif);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: unset center;
+  background-position: center center;
+  background-size: cover;
+}
 body .header {
   font-size: 50px;
   height: 100px;
@@ -11,7 +25,6 @@ body .header {
   color: #FFDE00;
   box-shadow: #3B4CCA 0px 0px 15px 0px;
 }
-
 body .description {
   display: flex;
   flex-direction: column;
@@ -27,14 +40,62 @@ body .description {
   border-radius: 10px;
   box-shadow: #3B4CCA 0px 3px 8px 3px;
 }
-
 body .description .welcome {
   font-size: 24px;
   font-weight: bold;
 }
-
 body .description .rules {
   font-size: 20px;
+}
+.card-set-master-parent{
+  width:100%;
+  height: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+}
+.three-division-container{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  width: 31%;
+  margin-top: 25px;
+
+}
+.style-override{
+  width: 80%;
+  height: 75px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #FFDE00;
+  text-align: center;
+  border: solid 5px #3B4CCA;
+  border-radius: 10px;
+  box-shadow: #3B4CCA 0px 3px 8px 3px;
+  margin-bottom: 20px;
+
+}
+.set-style{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  height: fit-content;
+  justify-content: space-around;
+  background-color: #3B4CCA;
+  border-radius: 10px;
+  border: solid 5px #3B4CCA;
+  box-shadow: #3B4CCA 0px 3px 8px 3px;
+  margin-top:20px;
+
+}
+
+.set-style > *{
+  width:46%;
+  margin-top:10px;
+  
+  
 }
 
 body .players {
@@ -44,12 +105,11 @@ body .players {
   justify-content: space-evenly;
   border: solid 5px #3B4CCA;
   border-radius: 10px;
-  width: 45%;
+  width: 700px;
   height: 100px;
   box-shadow: #3B4CCA 0px 3px 8px 3px;
-  margin: 260px auto 0px auto;
+  margin: 250px auto 0px auto;
 }
-
 body .players .players-button {
   background-color: white;
   border-radius: 10px;
@@ -57,17 +117,33 @@ body .players .players-button {
   text-decoration: none;
   font-size: 24px;
 }
-
 body .players .players-button:hover {
   background-color: #CC0000;
   color: white;
   transition: 0.5s;
 }
-
 body .players .players-button:focus {
   outline: none;
 }
-
+body .players .hidden {
+  position: absolute;
+  background-color: white;
+  z-index: 1;
+  margin-left: 10px;
+  border-radius: 0px 0px 10px 10px;
+  border-right: solid #CC0000 2px;
+  border-left: solid #CC0000 2px;
+  border-bottom: solid #CC0000 2px;
+}
+body .players .hidden .dropdown-item:hover {
+  background-color: #CC0000;
+  cursor: pointer;
+  color: white;
+}
+body .players .hidden .cardset-link:hover {
+  background-color: #3B4CCA;
+  color: #FFDE00;
+}
 body .start {
   font-weight: bold;
   font-size: 20px;
@@ -82,22 +158,118 @@ body .start {
   color:#3B4CCA;
 
 }
-
 body .start:hover {
-  transform: translateY(-10px);
   transition: ease-in 0.3s;
   background-color: #3B4CCA;
   color: #FFDE00;
 }
-
 body .start:active {
   transform: scale(0.9);
   transition: 0s;
 }
-
 body .start:focus {
   outline: none;
 }
 
+.start-link {
+  color: black;
+}
+
+.start-link:hover {
+  color: #FFDE00;
+  text-decoration: none;
+}
+
+.gameboard {
+  background-color: white;
+  background-image: url(../images/output-onlinepngtools.png);
+  border: 5px solid black;
+  border-radius: 10px;
+  width: 80%;
+  height: 700px;
+  margin: 50px auto;
+  display: flex;
+}
+.gameboard .game-left {
+  width: 30%;
+  height: 100%;
+}
+.gameboard .game-left .player-display {
+  margin: 10px;
+}
+.gameboard .game-left .player-display .player-info {
+  border-radius: 10px;
+  border: solid 5px #3B4CCA;
+  list-style-type: none;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-bottom: 10px;
+  background-color: #FFDE00;
+}
+.gameboard .game-left .player-display .player-info .name-input {
+  padding-left: 10px;
+  border: none;
+  border-radius: 10px;
+}
+.gameboard .game-left .player-display .player-info .name-input:focus {
+  outline: none;
+}
+.gameboard .game-left .player-display .player-info .score {
+  margin-left: 25px;
+  margin-bottom: 0px;
+}
+.gameboard .game-left .message-board {
+  border: solid 5px #3B4CCA;
+  border-radius: 10px;
+  width: calc(100% - 30px);
+  margin: 50px 10px 0px 10px;
+  padding: 10px;
+  color: #CC0000;
+  font-size: 40px;
+  font-weight: 800;
+  text-align: center;
+  background-color: #FFDE00;
+}
+.gameboard .game-right {
+  width: 70%;
+  padding: 0px;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-around;
+  perspective: 1000px;
+}
+.gameboard .game-right .small {
+  height: calc(25% - 10px);
+}
+.gameboard .game-right .large {
+  height: calc(30% - 5px);
+}
+.gameboard .game-right .memory-card {
+  margin: 5px;
+  position: relative;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+  display: flex;
+  justify-content: center;
+}
+.gameboard .game-right .memory-card .front-face, .gameboard .game-right .memory-card .back-face {
+  position: absolute;
+  height: 100%;
+  backface-visibility: hidden;
+}
+.gameboard .game-right .memory-card .front-face {
+  transform: rotateY(180deg);
+}
+.gameboard .game-right .memory-card.flip {
+  transform: rotateY(180deg);
+}
+.gameboard .game-right .memory-card:hover {
+  cursor: pointer;
+}
 
 /*# sourceMappingURL=style.css.map */
