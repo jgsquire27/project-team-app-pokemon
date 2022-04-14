@@ -69,10 +69,16 @@ body .description .rules {
 .set-style{
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   height: fit-content;
-  border-style: solid;
-  border-width: 2px;
-  border-color: black;
+  justify-content: space-between;
+
+}
+
+.set-style > *{
+  width:46%;
+  margin-top:10px;
+  
   
 }
 

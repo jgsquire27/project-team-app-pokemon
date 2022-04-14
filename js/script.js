@@ -11,33 +11,36 @@ dataPromise.then(data => {
 
 
 function displayCardSets(data) {
-    const cardSetOne = data.cards.slice(0,12);
-    console.log(cardSetOne);
-  
-  
+    //Creates first card set array//
+    const cardSetOne = data.cards.slice(0,12);  
+    //Creates second card set array//
     const cardSetTwo = data.cards.slice(12,24);
-    // console.log(cardSetTwo);
+    //Creates third card set array//
     const cardSetThree = data.cards.slice(24,36);
-    // console.log(cardSetThree);
+    //links js to parent
     let parentElement = document.getElementById('set-one');
-      
     for (let i = 0; i < cardSetOne.length; i++) {
-      createImgElement=(i)=>{
-        let newImg = document.createElement('image');
-        newImg.src = cardSetOne[i].imgUrl;
+        //creates an image element
+        let newImg = document.createElement('img');
+        //assigns image url to elements source
+        newImg.src = cardSetOne[i].imageUrl;
+        //adds child image to parent div
         parentElement.appendChild(newImg);
-
-
-        // parentElement.appendChild(document.createElement('img'));    
-        // let cardPackOne;
-        // cardPackOne.className = 'cardPackClass';
-        // cardPackOne.src = cardSetOne[i].imgUrl;
-        // return cardPackOne; 
-      }
-      return newImg;
-  
     }
 
+    let parentElementTwo = document.getElementById('set-two');
+    for (let i = 0; i < cardSetTwo.length; i++) {
+        let newImg = document.createElement('img');
+        newImg.src = cardSetTwo[i].imageUrl;
+        parentElementTwo.appendChild(newImg);
+    }
+
+    let parentElementThree = document.getElementById('set-three');
+    for (let i = 0; i < cardSetThree.length; i++) {
+        let newImg = document.createElement('img');
+        newImg.src = cardSetThree[i].imageUrl;
+        parentElementThree.appendChild(newImg);
+    }
 }
 
 
