@@ -7,7 +7,7 @@ const gameBoard = document.getElementById('game-board');
 
 let localApi = localStorage.getItem('localApi');
 async function loadData() {
-    if (localApi === '') {
+    if (localApi === '' || localApi === null) {
         let renderApi = JSON.stringify(await fetch('https://api.pokemontcg.io/v1/cards').then(response => response.json()));
         localStorage.setItem('localApi', renderApi);
     }
