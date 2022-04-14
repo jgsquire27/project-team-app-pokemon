@@ -180,6 +180,3 @@ else {
  messageBoard.innerText = player1 + 's turn';
 }
 
-let playerTurnFunction=()=>{
-    
-}
