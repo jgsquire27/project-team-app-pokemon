@@ -37,6 +37,7 @@ body .description .welcome {
 body .description .rules {
   font-size: 20px;
 }
+<<<<<<< HEAD
 body .description .card-set-link {
   color: black;
   width: 150px;
@@ -46,6 +47,8 @@ body .description .card-set-link {
   border: solid 2px #CC0000;
   border-radius: 10px;
 }
+=======
+>>>>>>> Jon
 body .players {
   background-color: #FFDE00;
   display: flex;

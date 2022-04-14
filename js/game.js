@@ -130,6 +130,24 @@ function renderPack(cards) {
     function checkForMatch() {
         let isMatch = firstCard.id === secondCard.id;
 
+        //---------Jon-----//
+        let playerTurnFunction=()=>{
+            let playerTurn =1;
+            if(firstCard.id === secondCard.id){
+                playerTurn +=0;
+            } 
+            else if(playerTurn > 4){
+                playerTurn = 1;
+            }
+            else{
+                playerTurn +=1;
+            }
+            return playerTurn;
+        }
+        console.log(playerTurn)
+        playerTurnFunction();
+        //---------------------//
+
         if (playerNumber === '1-player') {
             isMatch ? disableCards() : unflipCards();
         }
@@ -164,6 +182,8 @@ function renderPack(cards) {
         [firstCard, secondCard] = [null, null];
     }
     cardflip.forEach(card => card.addEventListener('click', flipCard));
+
+
  }
 //END MATCHING GAME
 
