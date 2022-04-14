@@ -179,3 +179,7 @@ if (playerNumber === '1-player') {
 else {
  messageBoard.innerText = player1 + 's turn';
 }
+
+let playerTurnFunction=()=>{
+    
+}
