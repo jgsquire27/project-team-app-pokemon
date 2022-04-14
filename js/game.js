@@ -156,17 +156,29 @@ function renderPack(cards) {
         }
         //change player turn
         function turnChange() {
-            if (playerTurn === 1) {
+            if (playerTurn === 1 && playerNumber != '1-player') {
                 playerTurn = 2;
                 messageBoard.innerText = "Player 2's turn"
             }
             else if (playerTurn === 2) {
-                playerTurn = 3;
-                messageBoard.innerText = "Player 3's turn"
+                if (playerNumber === '2-player'){
+                    playerTurn = 1;
+                    messageBoard.innerText = "Player 1's turn"
+                }
+                else {
+                    playerTurn = 3;
+                    messageBoard.innerText = "Player 3's turn"
+                }
             }
             else if (playerTurn === 3) {
-                playerTurn = 4;
-                messageBoard.innerText = "Player 4's turn"
+                if (playerNumber === '3-player') {
+                    playerTurn = 1;
+                    messageBoard.innerText = "Player 1's turn"
+                }
+                else {
+                    playerTurn = 4;
+                    messageBoard.innerText = "Player 4's turn"
+                }
             }
             else if (playerTurn === 4) {
                 playerTurn = 1;
