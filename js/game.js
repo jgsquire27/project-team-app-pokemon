@@ -35,22 +35,6 @@ loadLs();
 
  function generateGame(cards){
         let playerHTML = [`<li class="player-info" id="player-info1">
-<<<<<<< HEAD
-                                <input class="name-input-1" type="text" placeholder="Enter Player Name">
-                                <p class="score" id="player1score">Score: 0</p>
-                            </li>`,
-                            `<li class="player-info" id="player-info2">
-                                <input class="name-input-2" type="text" placeholder="Enter Player Name">
-                                <p class="score" id="player2score">Score: 0</p>
-                            </li>`,
-                            `<li class="player-info" id="player-info3">
-                                <input class="name-input-3" type="text" placeholder="Enter Player Name">
-                                <p class="score" id="player3score">Score: 0</p>
-                            </li>`,
-                            `<li class="player-info" id="player-info4">
-                                <input class="name-input-4" type="text" placeholder="Enter Player Name">
-                                <p class="score" id="player4score">Score: 0</p>
-=======
                                 <input class="name-input" type="text" placeholder="Enter Player Name">
                                 <p class="score" id="player1score">Score: <span id="score1">${player1score}</span></p>
                             </li>`,
@@ -65,7 +49,6 @@ loadLs();
                             `<li class="player-info" id="player-info4">
                                 <input class="name-input" type="text" placeholder="Enter Player Name">
                                 <p class="score" id="player4score">Score: <span id="score4">${player4score}</span></p>
->>>>>>> main
                             </li>`
                         ];
         if (playerNumber === '1-player') {
@@ -152,25 +135,6 @@ function renderPack(cards) {
     function checkForMatch() {
         let isMatch = firstCard.id === secondCard.id;
 
-<<<<<<< HEAD
-        //---------Jon-----//
-        // let playerTurnFunction=()=>{
-        //     let playerTurn =1;
-        //     if(isMatch===true){
-        //         playerTurn +=0;
-        //     } 
-        //     else if(playerTurn > 4){
-        //         playerTurn = 1;
-        //     }
-        //     else{
-        //         playerTurn +=1;
-        //     }
-        //     return playerTurn;
-        // }
-        // console.log(playerTurn)
-        // playerTurnFunction();
-        //---------------------//
-=======
         //update players scores
         function updateScore() {
             if (playerTurn === 1){
@@ -222,7 +186,6 @@ function renderPack(cards) {
             }
             console.log(playerTurn);
         }
->>>>>>> main
 
         // how many players are playing and winning the game
         if (playerNumber === '1-player') {
