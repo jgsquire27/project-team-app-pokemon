@@ -4,6 +4,11 @@ let gameSize = localStorage.getItem('size');
 let packSelection = localStorage.getItem('pack');
 const playerDisplay = document.getElementById('player-display');
 const gameBoard = document.getElementById('game-board');
+let player1score = 0;
+let player2score = 0;
+let player3score = 0;
+let player4score = 0;
+let playerTurn = 1;
 
 let localApi = localStorage.getItem('localApi');
 async function loadData() {
@@ -30,6 +35,7 @@ loadLs();
 
  function generateGame(cards){
         let playerHTML = [`<li class="player-info" id="player-info1">
+<<<<<<< HEAD
                                 <input class="name-input-1" type="text" placeholder="Enter Player Name">
                                 <p class="score" id="player1score">Score: 0</p>
                             </li>`,
@@ -44,6 +50,22 @@ loadLs();
                             `<li class="player-info" id="player-info4">
                                 <input class="name-input-4" type="text" placeholder="Enter Player Name">
                                 <p class="score" id="player4score">Score: 0</p>
+=======
+                                <input class="name-input" type="text" placeholder="Enter Player Name">
+                                <p class="score" id="player1score">Score: <span id="score1">${player1score}</span></p>
+                            </li>`,
+                            `<li class="player-info" id="player-info2">
+                                <input class="name-input" type="text" placeholder="Enter Player Name">
+                                <p class="score" id="player2score">Score: <span id="score2">${player2score}</span></p>
+                            </li>`,
+                            `<li class="player-info" id="player-info3">
+                                <input class="name-input" type="text" placeholder="Enter Player Name">
+                                <p class="score" id="player3score">Score: <span id="score3">${player3score}</span></p>
+                            </li>`,
+                            `<li class="player-info" id="player-info4">
+                                <input class="name-input" type="text" placeholder="Enter Player Name">
+                                <p class="score" id="player4score">Score: <span id="score4">${player4score}</span></p>
+>>>>>>> main
                             </li>`
                         ];
         if (playerNumber === '1-player') {
@@ -130,6 +152,7 @@ function renderPack(cards) {
     function checkForMatch() {
         let isMatch = firstCard.id === secondCard.id;
 
+<<<<<<< HEAD
         //---------Jon-----//
         // let playerTurnFunction=()=>{
         //     let playerTurn =1;
@@ -147,20 +170,80 @@ function renderPack(cards) {
         // console.log(playerTurn)
         // playerTurnFunction();
         //---------------------//
+=======
+        //update players scores
+        function updateScore() {
+            if (playerTurn === 1){
+                player1score = player1score + 1;
+                document.getElementById('score1').innerText = player1score;
+            }
+            else if (playerTurn === 2) {
+                player2score = player2score + 1;
+                document.getElementById('score2').innerText = player2score;
+            }
+            else if (playerTurn === 3) {
+                player3score = player3score + 1;
+                document.getElementById('score3').innerText = player3score;
+            }
+            else if (playerTurn === 4) {
+                player4score = player4score + 1;
+                document.getElementById('score4').innerText = player4score;
+            }
+        }
+        //change player turn
+        function turnChange() {
+            if (playerTurn === 1 && playerNumber != '1-player') {
+                playerTurn = 2;
+                messageBoard.innerText = "Player 2's turn"
+            }
+            else if (playerTurn === 2) {
+                if (playerNumber === '2-player'){
+                    playerTurn = 1;
+                    messageBoard.innerText = "Player 1's turn"
+                }
+                else {
+                    playerTurn = 3;
+                    messageBoard.innerText = "Player 3's turn"
+                }
+            }
+            else if (playerTurn === 3) {
+                if (playerNumber === '3-player') {
+                    playerTurn = 1;
+                    messageBoard.innerText = "Player 1's turn"
+                }
+                else {
+                    playerTurn = 4;
+                    messageBoard.innerText = "Player 4's turn"
+                }
+            }
+            else if (playerTurn === 4) {
+                playerTurn = 1;
+                messageBoard.innerText = "Player 1's turn"
+            }
+            console.log(playerTurn);
+        }
+>>>>>>> main
 
+        // how many players are playing and winning the game
         if (playerNumber === '1-player') {
-            isMatch ? disableCards() : unflipCards();
+            isMatch ? (disableCards() || updateScore()) : unflipCards();
+            if (player1score === 6 && gameSize === '12-cards') {
+                messageBoard.innerText = 'You Won!';
+            }
+            else if (player1score === 12 && gameSize === '24-cards') {
+                messageBoard.innerText = 'You Won!';
+            }
         }
         else if (playerNumber === '2-player') {
-            isMatch ? disableCards() : unflipCards();
-
+            isMatch ? (disableCards() || updateScore()) : (unflipCards() || turnChange());
+            
         }
         else if (playerNumber === '3-player') {
-            isMatch ? disableCards() : unflipCards();
+            isMatch ? (disableCards() || updateScore()) : (unflipCards() || turnChange());
 
         }
         else if (playerNumber === '4-player') {
-            isMatch ? disableCards() : unflipCards();
+            isMatch ? (disableCards() || updateScore()) : (unflipCards() || turnChange());
 
         }
     }
