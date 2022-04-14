@@ -253,17 +253,36 @@ let input2 = document.getElementById('input2');
 let input3 = document.getElementById('input3');
 let input4 = document.getElementById('input4');
 function info1() {
-    player1 = input1.value;
-    messageBoard.innerText = player1 + "'s turn";
+    if (input1.value != ''){
+        player1 = input1.value;
+    }
+    else {
+        player1 = "Player 1"
+    }
 }
 function info2() {
-    player2 = input2.value;
+    if (input2.value != ''){
+        player2 = input2.value;
+    }
+    else {
+        player2 = "Player 2"
+    }
 }
 function info3() {
-    player3 = input3.value;
+    if (input3.value != ''){
+        player3 = input3.value;
+    }
+    else {
+        player3 = "Player 3"
+    }
 }
 function info4() {
-    player4 = input4.value;
+    if (input4.value != ''){
+        player4 = input4.value;
+    }
+    else {
+        player4 = "Player 4"
+    }
 }
 input1.addEventListener('blur', info1);
 input2.addEventListener('blur', info2);
