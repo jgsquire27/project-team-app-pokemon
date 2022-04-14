@@ -103,7 +103,7 @@ function renderPack(cards) {
         doubleCards.sort((a, b) => 0.5 - Math.random());
         let cardHtml = '';
         doubleCards.forEach(card => {
-            cardHtml += `<div class="memory-card small" data-framework="${card.id}">
+            cardHtml += `<div class="memory-card small" id="${card.id}">
                             <img class="front-face" src="${card.imageUrl}">
                             <img class="back-face" src="../images/cardback.jpeg">
                          </div>`
@@ -129,18 +129,20 @@ function renderPack(cards) {
     }
     function checkForMatch() {
         let isMatch = firstCard.id === secondCard.id;
-        isMatch ? disableCards() : unflipCards();
 
         if (playerNumber === '1-player') {
-
+            isMatch ? disableCards() : unflipCards();
         }
         else if (playerNumber === '2-player') {
+            isMatch ? disableCards() : unflipCards();
 
         }
         else if (playerNumber === '3-player') {
+            isMatch ? disableCards() : unflipCards();
 
         }
         else if (playerNumber === '4-player') {
+            isMatch ? disableCards() : unflipCards();
 
         }
     }

@@ -57,21 +57,27 @@ async function loadData() {
 }
 
 //change buttons to display selected option and update local storage to selected options
-localStorage.setItem('players', '1-player');
-localStorage.setItem('size', '12-cards');
-localStorage.setItem('pack', 'pack1');
-
+let startButton = document.getElementById('start-button');
 document.getElementById('hidden-players').addEventListener('change', function(e) {
     let playerId = e.target.options[e.target.selectedIndex].getAttribute('id');
-    localStorage.setItem('players', playerId);  
+    startButton.addEventListener('click', setPlayerId());
+    function setPlayerId() {
+        localStorage.setItem('players', playerId);
+    }
 });
 
 document.getElementById('hidden-size').addEventListener('change', function(e) {
     let sizeId = e.target.options[e.target.selectedIndex].getAttribute('id');
-    localStorage.setItem('size', sizeId);
+    startButton.addEventListener('click', setSizeId());
+    function setSizeId() {
+        localStorage.setItem('size', sizeId);
+    }
 });
 
 document.getElementById('hidden-cards').addEventListener('change', function(e) {
     let packId = e.target.options[e.target.selectedIndex].getAttribute('id');
+    startButton.addEventListener('click', setPackId());
+    function setPackId() {
     localStorage.setItem('pack', packId);
+    }
 });
