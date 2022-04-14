@@ -37,6 +37,45 @@ body .description .welcome {
 body .description .rules {
   font-size: 20px;
 }
+.card-set-master-parent{
+  width:100%;
+  height: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+}
+.three-division-container{
+  display:flex;
+  flex-direction: column;
+  width: 31%;
+  margin-top: 25px;
+
+}
+.style-override{
+  width: 100%;
+  height: 75px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #FFDE00;
+  text-align: center;
+  border: solid 5px #3B4CCA;
+  border-radius: 10px;
+  box-shadow: #3B4CCA 0px 3px 8px 3px;
+  margin-bottom: 20px;
+
+}
+.set-style{
+  width: 100%;
+  display: flex;
+  height: fit-content;
+  border-style: solid;
+  border-width: 2px;
+  border-color: black;
+  
+}
+
 body .players {
   background-color: #FFDE00;
   display: flex;
