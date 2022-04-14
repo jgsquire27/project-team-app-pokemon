@@ -30,19 +30,19 @@ loadLs();
 
  function generateGame(cards){
         let playerHTML = [`<li class="player-info" id="player-info1">
-                                <input class="name-input" type="text" placeholder="Enter Player Name">
+                                <input class="name-input-1" type="text" placeholder="Enter Player Name">
                                 <p class="score" id="player1score">Score: 0</p>
                             </li>`,
                             `<li class="player-info" id="player-info2">
-                                <input class="name-input" type="text" placeholder="Enter Player Name">
+                                <input class="name-input-2" type="text" placeholder="Enter Player Name">
                                 <p class="score" id="player2score">Score: 0</p>
                             </li>`,
                             `<li class="player-info" id="player-info3">
-                                <input class="name-input" type="text" placeholder="Enter Player Name">
+                                <input class="name-input-3" type="text" placeholder="Enter Player Name">
                                 <p class="score" id="player3score">Score: 0</p>
                             </li>`,
                             `<li class="player-info" id="player-info4">
-                                <input class="name-input" type="text" placeholder="Enter Player Name">
+                                <input class="name-input-4" type="text" placeholder="Enter Player Name">
                                 <p class="score" id="player4score">Score: 0</p>
                             </li>`
                         ];
@@ -131,21 +131,21 @@ function renderPack(cards) {
         let isMatch = firstCard.id === secondCard.id;
 
         //---------Jon-----//
-        let playerTurnFunction=()=>{
-            let playerTurn =1;
-            if(firstCard.id === secondCard.id){
-                playerTurn +=0;
-            } 
-            else if(playerTurn > 4){
-                playerTurn = 1;
-            }
-            else{
-                playerTurn +=1;
-            }
-            return playerTurn;
-        }
-        console.log(playerTurn)
-        playerTurnFunction();
+        // let playerTurnFunction=()=>{
+        //     let playerTurn =1;
+        //     if(isMatch===true){
+        //         playerTurn +=0;
+        //     } 
+        //     else if(playerTurn > 4){
+        //         playerTurn = 1;
+        //     }
+        //     else{
+        //         playerTurn +=1;
+        //     }
+        //     return playerTurn;
+        // }
+        // console.log(playerTurn)
+        // playerTurnFunction();
         //---------------------//
 
         if (playerNumber === '1-player') {
@@ -197,6 +197,9 @@ if (playerNumber === '1-player') {
     messageBoard.innerText = 'Pokemon Match';
 }
 else {
- messageBoard.innerText = player1 + 's turn';
+ messageBoard.innerText = player1 + "'s turn";
 }
 
+function changeText(){
+    
+}
