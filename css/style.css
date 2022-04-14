@@ -133,6 +133,7 @@ body .start:focus {
   height: 700px;
   margin: 50px auto;
   display: flex;
+  box-shadow: gray 0px 8px 15px 0px;
 }
 .gameboard .game-left {
   width: 30%;
@@ -150,7 +151,6 @@ body .start:focus {
   flex-direction: column;
   justify-content: space-around;
   margin-bottom: 10px;
-  background-color: #FFDE00;
 }
 .gameboard .game-left .player-display .player-info .name-input {
   padding-left: 10px;
@@ -174,7 +174,7 @@ body .start:focus {
   font-size: 40px;
   font-weight: 800;
   text-align: center;
-  background-color: #FFDE00;
+  background-color: white;
 }
 .gameboard .game-right {
   width: 70%;
@@ -214,6 +214,14 @@ body .start:focus {
 }
 .gameboard .game-right .memory-card:hover {
   cursor: pointer;
+}
+
+.green {
+  background-color: green;
+}
+
+.yellow {
+  background-color: #FFDE00;
 }
 
 /*# sourceMappingURL=style.css.map */

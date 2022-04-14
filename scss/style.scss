@@ -143,6 +143,7 @@ body {
     height: 700px;
     margin: 50px auto;
     display: flex;
+    box-shadow: gray 0px 8px 15px 0px;
     .game-left{
         width: 30%;
         height: 100%;
@@ -157,7 +158,6 @@ body {
                 flex-direction: column;
                 justify-content: space-around;
                 margin-bottom: 10px;
-                background-color: $yellow1;
                 .name-input{
                     padding-left: 10px;
                     border: none;
@@ -182,7 +182,7 @@ body {
             font-size: 40px;
             font-weight: 800;
             text-align: center;
-            background-color: $yellow1;
+            background-color: white;
         }
     }
     .game-right{
@@ -224,4 +224,10 @@ body {
             cursor: pointer;
         }
     }
+}
+.green{
+    background-color: green;
+}
+.yellow{
+    background-color: $yellow1;
 }
