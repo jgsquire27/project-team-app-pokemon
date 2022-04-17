@@ -1,4 +1,3 @@
-//card pack api 
 let playerNumber = localStorage.getItem('players');
 let gameSize = localStorage.getItem('size');
 let packSelection = localStorage.getItem('pack');
@@ -10,10 +9,13 @@ let player3score = 0;
 let player4score = 0;
 let playerTurn = 1;
 let turn = 1;
+let player1 = 'Player 1';
+let player2 = 'Player 2'
+let player3 = 'Player 3';
+let player4 = 'Player 4';
 
 
-
-
+//card pack API
 let localApi = localStorage.getItem('localApi');
 async function loadData() {
     if (localApi === '' || localApi === null) {
@@ -41,20 +43,20 @@ loadLs();
 //display correct amount of players
 
  function generateGame(cards){
-        let playerHTML = [`<li class="player-info" id="player-info1">
-                                <input class="name-input" type="text" placeholder="Enter Player Name">
+        let playerHTML = [`<li class="player-info yellow" id="player-info1">
+                                <input class="name-input" type="text" placeholder="Enter Player Name" id="input1">
                                 <p class="score" id="player1score">Score: <span id="score1">${player1score}</span></p>
                             </li>`,
-                            `<li class="player-info" id="player-info2">
-                                <input class="name-input" type="text" placeholder="Enter Player Name">
+                            `<li class="player-info yellow" id="player-info2">
+                                <input class="name-input" type="text" placeholder="Enter Player Name" id="input2">
                                 <p class="score" id="player2score">Score: <span id="score2">${player2score}</span></p>
                             </li>`,
-                            `<li class="player-info" id="player-info3">
-                                <input class="name-input" type="text" placeholder="Enter Player Name">
+                            `<li class="player-info yellow" id="player-info3">
+                                <input class="name-input" type="text" placeholder="Enter Player Name" id="input3">
                                 <p class="score" id="player3score">Score: <span id="score3">${player3score}</span></p>
                             </li>`,
-                            `<li class="player-info" id="player-info4">
-                                <input class="name-input" type="text" placeholder="Enter Player Name">
+                            `<li class="player-info yellow" id="player-info4">
+                                <input class="name-input" type="text" placeholder="Enter Player Name" id="input4">
                                 <p class="score" id="player4score">Score: <span id="score4">${player4score}</span></p>
                             </li>`
                         ];
@@ -77,7 +79,6 @@ loadLs();
             playerDisplay.innerHTML = playerHTML;
             renderPack(cards);
         }
-    
  }
 // card pack selector
 function renderPack(cards) {
@@ -93,7 +94,6 @@ function renderPack(cards) {
     }
     renderCards(cardPack);
 }
-
 
  //render game size and randomize cards
  function renderCards(cards) {
@@ -167,31 +167,31 @@ function renderPack(cards) {
         function turnChange() {
             if (playerTurn === 1 && playerNumber != '1-player') {
                 playerTurn = 2;
-                messageBoard.innerText = "Player 2's turn"
+                messageBoard.innerText = player2 + "'s turn"
             }
             else if (playerTurn === 2) {
                 if (playerNumber === '2-player'){
                     playerTurn = 1;
-                    messageBoard.innerText = "Player 1's turn"
+                    messageBoard.innerText = player1 + "'s turn"
                 }
                 else {
                     playerTurn = 3;
-                    messageBoard.innerText = "Player 3's turn"
+                    messageBoard.innerText = player3 + "'s turn"
                 }
             }
             else if (playerTurn === 3) {
                 if (playerNumber === '3-player') {
                     playerTurn = 1;
-                    messageBoard.innerText = "Player 1's turn"
+                    messageBoard.innerText = player1 + "'s turn"
                 }
                 else {
                     playerTurn = 4;
-                    messageBoard.innerText = "Player 4's turn"
+                    messageBoard.innerText = player4 + "'s turn"
                 }
             }
             else if (playerTurn === 4) {
                 playerTurn = 1;
-                messageBoard.innerText = "Player 1's turn"
+                messageBoard.innerText = player1 + "'s turn"
             }
             console.log(playerTurn);
         }
@@ -237,24 +237,62 @@ function renderPack(cards) {
         [firstCard, secondCard] = [null, null];
     }
     cardflip.forEach(card => card.addEventListener('click', flipCard));
-
-
  }
 //END MATCHING GAME
 
  //message board
  let messageBoard = document.getElementById('message-board');
- let player1 = 'Player 1';
- let player2 = 'Player 2'
- let player3 = 'Player 3';
- let player4 = 'Player 4';
-if (playerNumber === '1-player') {
-    messageBoard.innerText = 'Pokemon Match';
-}
-else {
- messageBoard.innerText = player1 + "'s turn";
-}
+ if (playerNumber === '1-player') {
+     messageBoard.innerText = 'Pokemon Match';
+ }
+ else {
+  messageBoard.innerText = player1 + "'s turn";
+ }
 
-function changeText(){
-    
+
+ let input1 = document.getElementById('input1');
+ let input2 = document.getElementById('input2');
+ let input3 = document.getElementById('input3');
+ let input4 = document.getElementById('input4');
+ function info1() {
+    player1 = input1.value;
+    messageBoard.innerText = player1 + "'s turn";
+    if (input1.value != ''){
+        player1 = input1.value;
+    }
+    else {
+        player1 = "Player 1"
+    }
 }
+function info2() {
+    player2 = input2.value;
+    if (input2.value != ''){
+        player2 = input2.value;
+    }
+    else {
+        player2 = "Player 2"
+    }
+}
+function info3() {
+    player3 = input3.value;
+    if (input3.value != ''){
+        player3 = input3.value;
+    }
+    else {
+        player3 = "Player 3"
+    }
+}
+function info4() {
+    player4 = input4.value;
+    if (input4.value != ''){
+        player4 = input4.value;
+    }
+    else {
+        player4 = "Player 4"
+    }
+}
+ input1.addEventListener('blur', info1);
+ input2.addEventListener('blur', info2);
+ input3.addEventListener('blur', info3);
+ input4.addEventListener('blur', info4);
+
