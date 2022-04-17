@@ -208,7 +208,13 @@ function renderPack(cards) {
             }
             if(turn > numAllowedTurns){
                 alert('Game Over!');
-                window.location = '/index.html';
+                if (window.location.pathname.includes('project-team-app-pokemon')){
+                    window.location = '/project-team-app-pokemon/index.html';
+                } else {
+                    window.location = '/index.html';
+                }
+
+                
 
             }
         }
