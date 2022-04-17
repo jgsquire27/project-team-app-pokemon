@@ -63,7 +63,7 @@ function displayCardSets(data) {
 let startButton = document.getElementById('start-button');
     const hiddenPlayers = document.getElementById('hidden-players');
     if(hiddenPlayers !== null){
-        hiddenPlayers.addEventListener('change', function(e) {
+        hiddenPlayers.addEventListener('click', function(e) {
             let playerId = e.target.options[e.target.selectedIndex].getAttribute('id');
             startButton.addEventListener('click', setPlayerId);
             function setPlayerId() {
@@ -75,7 +75,7 @@ let startButton = document.getElementById('start-button');
 
     const hiddenSize = document.getElementById('hidden-size');
     if(hiddenSize !== null){
-        hiddenSize.addEventListener('change', function(e) {
+        hiddenSize.addEventListener('click', function(e) {
             let sizeId = e.target.options[e.target.selectedIndex].getAttribute('id');
             startButton.addEventListener('click', setSizeId);
             function setSizeId() {
@@ -86,7 +86,7 @@ let startButton = document.getElementById('start-button');
 
     const hiddenCards = document.getElementById('hidden-cards');
     if(hiddenCards !== null){
-        hiddenCards.addEventListener('change', function(e) {
+        hiddenCards.addEventListener('click', function(e) {
             let packId = e.target.options[e.target.selectedIndex].getAttribute('id');
             startButton.addEventListener('click', setPackId);
             function setPackId() {
