@@ -3,15 +3,19 @@ let gameSize = localStorage.getItem('size');
 let packSelection = localStorage.getItem('pack');
 const playerDisplay = document.getElementById('player-display');
 const gameBoard = document.getElementById('game-board');
+const numAllowedTurns = 2;
 let player1score = 0;
 let player2score = 0;
 let player3score = 0;
 let player4score = 0;
 let playerTurn = 1;
+let turn = 1;
 let player1 = 'Player 1';
 let player2 = 'Player 2'
 let player3 = 'Player 3';
 let player4 = 'Player 4';
+
+
 
 //card pack API
 let localApi = localStorage.getItem('localApi');
@@ -27,6 +31,9 @@ async function loadData() {
     generateGame(localApi.cards);
 }
 loadData();
+
+
+
 
 //load local storage into console
 function loadLs() {
@@ -136,6 +143,7 @@ function renderPack(cards) {
     }
     function checkForMatch() {
         let isMatch = firstCard.id === secondCard.id;
+        turn++;
 
         //update players scores
         function updateScore() {
@@ -197,6 +205,11 @@ function renderPack(cards) {
             }
             else if (player1score === 12 && gameSize === '24-cards') {
                 messageBoard.innerText = 'You Won!';
+            }
+            if(turn > numAllowedTurns){
+                alert('Game Over!');
+                window.location = '/index.html';
+
             }
         }
         else if (playerNumber === '2-player') {
