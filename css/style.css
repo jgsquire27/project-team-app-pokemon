@@ -97,6 +97,9 @@ body .description .welcome {
 body .description .rules {
   font-size: 20px;
 }
+.rules{
+  margin-bottom: 4px;
+}
 .card-set-master-parent{
   width:100%;
   height: 500px;
