@@ -9,6 +9,10 @@ let player2score = 0;
 let player3score = 0;
 let player4score = 0;
 let playerTurn = 1;
+let turn = 1;
+
+
+
 
 let localApi = localStorage.getItem('localApi');
 async function loadData() {
@@ -23,6 +27,9 @@ async function loadData() {
     generateGame(localApi.cards);
 }
 loadData();
+
+
+
 
 //load local storage into console
 function loadLs() {
@@ -134,6 +141,8 @@ function renderPack(cards) {
     }
     function checkForMatch() {
         let isMatch = firstCard.id === secondCard.id;
+        turn++;
+        console.log(turn)
 
         //update players scores
         function updateScore() {
