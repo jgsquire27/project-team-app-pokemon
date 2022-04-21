@@ -37,51 +37,51 @@ function loadLs() {
 loadLs();
 //display correct amount of players
 
- function generateGame(cards){
-        let playerHTML = [`<li class="player-info yellow" id="player-info1">
+function generateGame(cards) {
+    let playerHTML = [`<li class="player-info yellow" id="player-info1">
                                 <input class="name-input" type="text" placeholder="Enter Player Name" id="input1">
                                 <p class="score" id="player1score">Score: <span id="score1">${player1score}</span></p>
                             </li>`,
-                            `<li class="player-info yellow" id="player-info2">
+    `<li class="player-info yellow" id="player-info2">
                                 <input class="name-input" type="text" placeholder="Enter Player Name" id="input2">
                                 <p class="score" id="player2score">Score: <span id="score2">${player2score}</span></p>
                             </li>`,
-                            `<li class="player-info yellow" id="player-info3">
+    `<li class="player-info yellow" id="player-info3">
                                 <input class="name-input" type="text" placeholder="Enter Player Name" id="input3">
                                 <p class="score" id="player3score">Score: <span id="score3">${player3score}</span></p>
                             </li>`,
-                            `<li class="player-info yellow" id="player-info4">
+    `<li class="player-info yellow" id="player-info4">
                                 <input class="name-input" type="text" placeholder="Enter Player Name" id="input4">
                                 <p class="score" id="player4score">Score: <span id="score4">${player4score}</span></p>
                             </li>`
-                        ];
-        if (playerNumber === '1-player') {
-            playerHTML.splice('1');
-            playerDisplay.innerHTML = playerHTML;
-            renderPack(cards);
-        }
-        else if (playerNumber === '2-player') {
-            playerHTML.splice('2');
-            playerDisplay.innerHTML = playerHTML;
-            renderPack(cards);
-        }
-        else if (playerNumber === '3-player') {
-            playerHTML.splice('3');
-            playerDisplay.innerHTML = playerHTML;
-            renderPack(cards);
-        }
-        else if (playerNumber === '4-player') {
-            playerDisplay.innerHTML = playerHTML;
-            renderPack(cards);
-        }
- }
+    ];
+    if (playerNumber === '1-player') {
+        playerHTML.splice('1');
+        playerDisplay.innerHTML = playerHTML;
+        renderPack(cards);
+    }
+    else if (playerNumber === '2-player') {
+        playerHTML.splice('2');
+        playerDisplay.innerHTML = playerHTML;
+        renderPack(cards);
+    }
+    else if (playerNumber === '3-player') {
+        playerHTML.splice('3');
+        playerDisplay.innerHTML = playerHTML;
+        renderPack(cards);
+    }
+    else if (playerNumber === '4-player') {
+        playerDisplay.innerHTML = playerHTML;
+        renderPack(cards);
+    }
+}
 // card pack selector
 function renderPack(cards) {
     let cardPack = [];
     if (packSelection === 'pack1') {
         cardPack = cards.slice(0, 12);
     }
-    else if (packSelection ==='pack2'){
+    else if (packSelection === 'pack2') {
         cardPack = cards.slice(12, 24);
     }
     else {
@@ -90,9 +90,9 @@ function renderPack(cards) {
     renderCards(cardPack);
 }
 
- //render game size and randomize cards
- function renderCards(cards) {
-    if (gameSize === '12-cards'){
+//render game size and randomize cards
+function renderCards(cards) {
+    if (gameSize === '12-cards') {
         cards.splice(6);
         const doubleCards = [...cards, ...cards];
         doubleCards.sort((a, b) => 0.5 - Math.random());
@@ -105,7 +105,7 @@ function renderPack(cards) {
         });
         document.getElementById('game-board').innerHTML = cardHtml;
     }
-    if (gameSize === '24-cards'){
+    if (gameSize === '24-cards') {
         const doubleCards = [...cards, ...cards];
         doubleCards.sort((a, b) => 0.5 - Math.random());
         let cardHtml = '';
@@ -127,7 +127,7 @@ function renderPack(cards) {
         if (this === firstCard) return;
         this.classList.add('flip');
         if (!hasFlippedCard) {
-            hasFlippedCard = true; 
+            hasFlippedCard = true;
             firstCard = this;
             return;
         }
@@ -139,7 +139,7 @@ function renderPack(cards) {
 
         //update players scores
         function updateScore() {
-            if (playerTurn === 1){
+            if (playerTurn === 1) {
                 player1score = player1score + 1;
                 document.getElementById('score1').innerText = player1score;
             }
@@ -163,7 +163,7 @@ function renderPack(cards) {
                 messageBoard.innerText = player2 + "'s turn"
             }
             else if (playerTurn === 2) {
-                if (playerNumber === '2-player'){
+                if (playerNumber === '2-player') {
                     playerTurn = 1;
                     messageBoard.innerText = player1 + "'s turn"
                 }
@@ -201,7 +201,7 @@ function renderPack(cards) {
         }
         else if (playerNumber === '2-player') {
             isMatch ? (disableCards() || updateScore()) : (unflipCards() || turnChange());
-            
+
         }
         else if (playerNumber === '3-player') {
             isMatch ? (disableCards() || updateScore()) : (unflipCards() || turnChange());
@@ -230,27 +230,26 @@ function renderPack(cards) {
         [firstCard, secondCard] = [null, null];
     }
     cardflip.forEach(card => card.addEventListener('click', flipCard));
- }
+}
 //END MATCHING GAME
 
- //message board
- let messageBoard = document.getElementById('message-board');
- if (playerNumber === '1-player') {
-     messageBoard.innerText = 'Pokemon Match';
- }
- else {
-  messageBoard.innerText = player1 + "'s turn";
- }
-
-
- let input1 = document.getElementById('input1');
- let input2 = document.getElementById('input2');
- let input3 = document.getElementById('input3');
- let input4 = document.getElementById('input4');
- function info1() {
-    player1 = input1.value;
+//message board
+let messageBoard = document.getElementById('message-board');
+if (playerNumber === '1-player') {
+    messageBoard.innerText = 'Pokemon Match';
+}
+else {
     messageBoard.innerText = player1 + "'s turn";
-    if (input1.value != ''){
+}
+
+
+let input1 = document.getElementById('input1');
+let input2 = document.getElementById('input2');
+let input3 = document.getElementById('input3');
+let input4 = document.getElementById('input4');
+function info1() {
+    player1 = input1.value;
+    if (input1.value != '') {
         player1 = input1.value;
     }
     else {
@@ -259,7 +258,7 @@ function renderPack(cards) {
 }
 function info2() {
     player2 = input2.value;
-    if (input2.value != ''){
+    if (input2.value != '') {
         player2 = input2.value;
     }
     else {
@@ -268,7 +267,7 @@ function info2() {
 }
 function info3() {
     player3 = input3.value;
-    if (input3.value != ''){
+    if (input3.value != '') {
         player3 = input3.value;
     }
     else {
@@ -277,15 +276,15 @@ function info3() {
 }
 function info4() {
     player4 = input4.value;
-    if (input4.value != ''){
+    if (input4.value != '') {
         player4 = input4.value;
     }
     else {
         player4 = "Player 4"
     }
 }
- input1.addEventListener('blur', info1);
- input2.addEventListener('blur', info2);
- input3.addEventListener('blur', info3);
- input4.addEventListener('blur', info4);
+input1.addEventListener('blur', info1);
+input2.addEventListener('blur', info2);
+input3.addEventListener('blur', info3);
+input4.addEventListener('blur', info4);
 
